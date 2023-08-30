@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./widgets/Navbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Homepage from "./scenes/Homepage/Homepage";
+import About from "./scenes/About/About";
+import Contact from "./scenes/Contact/Contact";
+import { TodoState } from "Contexts/TodoContext";
+import {CartState} from "Contexts/CartContext";
+import {WeatherState} from "Contexts/WeatherContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <TodoState>
+        <CartState>
+          <WeatherState>
+            <BrowserRouter>
+              <Navbar />
+              <Routes>
+                <Route exact path="/" element={<Homepage />} />
+                <Route exact path="/about" element={<About />} />
+                <Route exact path="/contact" element={<Contact />} />
+              </Routes>
+            </BrowserRouter>
+          </WeatherState>
+        </CartState>
+      </TodoState>
+    </>
   );
 }
 
