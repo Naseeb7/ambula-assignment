@@ -44,7 +44,7 @@ const TodoWidget = () => {
   // Effect to update completed tasks
   useEffect(()=>{
     updateCompletedTasks()
-  },[])
+  },[]) // eslint-disable-line
 
   return (
     // Main container for the TodoWidget component
