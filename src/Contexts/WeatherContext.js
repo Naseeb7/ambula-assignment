@@ -1,3 +1,4 @@
+import { fakeWeather } from "data";
 import { createContext, useState } from "react";
 
 // Create a new context for managing weather-related state
@@ -11,7 +12,7 @@ const apiKey = process.env.REACT_APP_API_KEY;
 export const WeatherState = (props) => {
   // State to manage cities, weather data, loading status, error status, and location status
   const [cities, setCities] = useState([]);
-  const [weather, setWeather] = useState();
+  const [weather, setWeather] = useState(fakeWeather);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [myLocation, setMyLocation] = useState(false);

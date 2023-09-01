@@ -8,8 +8,7 @@ html{
   font-family: 'Montserrat', sans-serif;
 }
 
-/* eslint-disable-next-line */
-.product::-webkit-scrollbar{
+.noScollbar::-webkit-scrollbar{
     display: none;
 }
 

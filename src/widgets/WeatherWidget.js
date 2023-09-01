@@ -48,7 +48,7 @@ const WeatherWidget = () => {
     // Main container for the WeatherWidget component
     <div className="flex flex-col items-center h-[60vh] p-2 bg-teal-50">
       {/* City Search */}
-      <div className="flex flex-col p-2 w-2/4 m-2 justify-center items-center">
+      <div className="flex flex-col p-2 w-full sm:w-2/4 m-2 justify-center items-center">
         {/* Input field for city search */}
         <input
           type="text"
@@ -107,7 +107,7 @@ const WeatherWidget = () => {
       {!myLocation && <div className="flex text-teal-800">Couldn't get location</div>}
       {/* Display weather information */}
       {weather && (
-        <div className="flex w-2/4 animate-growOut">
+        <div className="flex w-full sm:w-2/4 animate-growOut">
           <div className="flex flex-col p-4 bg-slate-300 rounded-xl text-teal-800 w-full gap-4">
             {/* Display city and country */}
             <div className="flex flex-col gap-1 items-center relative">

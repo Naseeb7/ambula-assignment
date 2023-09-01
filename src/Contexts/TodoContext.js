@@ -16,6 +16,12 @@ export const TodoState = (props) => {
     setTodoList((prev) => [...prev, { id: id, todo: todo, completed: false }]);
   };
 
+  // unction to update completed tasks
+  const updateCompletedTasks=()=>{
+    const completedArr = todoList.filter((task) => task.completed === true);
+    setCompletedTasks(completedArr.length);
+  }
+
   // Function to mark/unmark a task as completed
   const markUnmarkCompleted = (id) => {
     const idIndex = todoList.findIndex((obj) => obj.id === id);
@@ -25,8 +31,7 @@ export const TodoState = (props) => {
     } else {
       task.completed = false;
     }
-    const completedArr = todoList.filter((task) => task.completed === true);
-    setCompletedTasks(completedArr.length);
+    updateCompletedTasks()
   };
 
   // Function to delete a task from the todo list
@@ -45,6 +50,7 @@ export const TodoState = (props) => {
         completedTasks,
         markUnmarkCompleted,
         deleteTask,
+        updateCompletedTasks
       }}
     >
       {props.children}

@@ -13,6 +13,7 @@ const TodoWidget = () => {
     completedTasks,
     markUnmarkCompleted,
     deleteTask,
+    updateCompletedTasks
   } = context;
 
   // State to manage the input value for adding tasks
@@ -40,6 +41,11 @@ const TodoWidget = () => {
     });
   }, [todoList]); // eslint-disable-line
 
+  // Effect to update completed tasks
+  useEffect(()=>{
+    updateCompletedTasks()
+  },[])
+
   return (
     // Main container for the TodoWidget component
     <div className="flex flex-col sm:flex-row justify-between bg-teal-50 p-2">
@@ -48,7 +54,7 @@ const TodoWidget = () => {
         To-do
       </div>
       {/* Add Task Section */}
-      <div className="flex flex-col w-3/5 justify-center items-center p-2">
+      <div className="flex flex-col w-full sm:w-3/5 justify-center items-center p-2">
         <div className="flex flex-col w-2/3 p-2 gap-4">
           {/* Input field for new task */}
           <div className="flex flex-col gap-2 w-full">
@@ -89,7 +95,7 @@ const TodoWidget = () => {
                     todo.completed === true
                       ? "bg-teal-600 text-zinc-800"
                       : "bg-teal-200 text-zinc-700"
-                  } text-lg rounded-xl p-2 w-2/3 justify-between items-center animate-scaleY origin-top duration-200`}
+                  } text-lg rounded-xl p-2 w-3/4 sm:w-2/3 justify-between items-center animate-scaleY origin-top duration-200`}
                 >
                   {/* Task completion icon */}
                   <div
@@ -115,7 +121,7 @@ const TodoWidget = () => {
         </div>
       </div>
       {/* Statistics Section */}
-      <div className="flex flex-col w-1/5 items-center p-2 gap-8">
+      <div className="flex flex-col w-full sm:w-1/5 items-center p-2 gap-8">
         <div className="flex text-xl text-teal-600 font-semibold">Statistics</div>
         {/* Total tasks and completed tasks */}
         <div className="flex flex-col items-center w-full">

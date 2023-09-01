@@ -1,3 +1,4 @@
+import { fakeProducts } from "data"
 import { createContext, useState } from "react"
 
 // Create a new context for managing cart-related state
@@ -9,13 +10,13 @@ const url = process.env.REACT_APP_SHOP_URL
 // Define the CartState component to manage cart-related state
 export const CartState = (props) => {
   // State to manage products, cart items, and subTotal
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState(fakeProducts)
   const [cartItems, setCartItems] = useState([])
   const [subTotal, setSubTotal] = useState(0)
 
   // Function to fetch products from the provided URL
   const getProducts = async () => {
-    const response = await fetch(`${url}/products?limit=5`)
+    const response = await fetch(`${url}/products?limit=10`)
     const result = await response.json()
     setProducts(result)
   }
